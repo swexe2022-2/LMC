@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: MyString
+  ingredients: MyString
+  process: MyString
+  tag: MyString
+  movie: 
+  image: 
+  user_id: 1
+
+two:
+  fname: MyString
+  ingredients: MyString
+  process: MyString
+  tag: MyString
+  movie: 
+  image: 
+  user_id: 1
