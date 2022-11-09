@@ -1,2 +1,16 @@
-<h1>Recipes#new</h1>
-<p>Find me in app/views/recipes/new.html.erb</p>
+<%= form_for @recipe , url: {action: :create} do |f| %>
+    <p><%= f.label :fname, '料理名' %>
+    <%= f.text_field :fname %></p>
+    <p><%= f.label :ingredients, '材料' %>
+    <%= f.text_field :ingredients %></p>
+   
+    <p><%= f.label :process, '手順' %>
+    <%= f.text_field :process %></p>
+    <p><%= f.label :tag, 'タグ(チェックボックス)' %>
+    <%= f.text_field :tag %></p>
+    <p><%= f.label :image, '画像' %>
+    <%= f.file_field :image %></p>
+    <p><%= f.label :movie, '動画' %>
+    <%= f.file_field :movie %></p>
+     <%= f.submit '投稿' %>
+<% end %>
