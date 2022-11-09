@@ -1,0 +1,8 @@
+recipes/index.html.erb<br>
+
+
+<%= link_to 'ユーザー登録', new_user_path %><br>
+
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
