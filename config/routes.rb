@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # get 'users/{:id}', to: 'users#show'
   # post 'users/{:id}/edit', to: 'users#edit'
   root 'recipes#index'
+  get 'top/main'
   post 'top/login'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
