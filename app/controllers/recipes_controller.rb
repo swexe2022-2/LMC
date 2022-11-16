@@ -19,8 +19,16 @@ class RecipesController < ApplicationController
   
   def create
     fname = params[:recipe][:fname]
-    image = params[:recipe][:image].read
-    movie = params[:recipe][:movie].read
+    if params[:recipe][:image] == nil
+      image = nil
+    else
+      image = params[:recipe][:image].read
+    end  
+    if params[:recipe][:movie] == nil
+      movie = nil
+    else
+      movie = params[:recipe][:movie].read
+    end
     ingredients = params[:recipe][:ingredients]
     process = params[:recipe][:process]
     tag = params[:recipe][:tag]
@@ -48,8 +56,16 @@ class RecipesController < ApplicationController
   def update
     @home = Home.find(params[:id])
     fname = params[:recipe][:fname]
-    image = params[:recipe][:image].read
-    movie = params[:recipe][:movie].read
+    if params[:recipe][:image] == nil
+      image = nil
+    else
+      image = params[:recipe][:image].read
+    end  
+    if params[:recipe][:movie] == nil
+      movie = nil
+    else
+      movie = params[:recipe][:movie].read
+    end
     ingredients = params[:recipe][:ingredients]
     process = params[:recipe][:process]
     tag = params[:recipe][:tag]

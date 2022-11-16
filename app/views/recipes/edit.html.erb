@@ -1,0 +1,16 @@
+<%= form_for @recipe , url: {action: :update} do |f| %>
+    <p><%= f.label :fname, '料理名' %>
+    <%= f.text_field :fname %></p>
+    <p><%= f.label :ingredients, '材料' %>
+    <%= f.text_area :ingredients, :cols => 40, :rows => 10 %></p>
+   
+    <p><%= f.label :process, '手順' %>
+    <%= f.text_area :process,:cols => 40, :rows => 10 %></p>
+    <p><%= f.label :tag, 'タグ(チェックボックス)' %>
+    <%= f.text_field :tag %></p>
+    <p><%= f.label :image, '画像' %>
+    <%= f.file_field :image %></p>
+    <p><%= f.label :movie, '動画' %>
+    <%= f.file_field :movie %></p>
+     <%= f.submit '投稿' %>
+<% end %>

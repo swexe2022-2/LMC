@@ -1,0 +1,14 @@
+    料理名
+    <p><%= @recipe.fname %></p>
+    材料
+    <p><%= safe_join(@recipe.ingredients.split("\n"),tag(:br)) %></p>
+    手順
+    <p><%= safe_join(@recipe.process.split("\n"),tag(:br)) %></p>
+    タグ
+    <p><%= @recipe.tag %></p>    
+    
+    <p><%= image_tag "/get_reciepe/#{@recipe.id}" %></p>
+    <p><%= video_tag("/get_reciepe2/#{@recipe.id}", size: "500x300", autoplay: true, muted: true,controls: true)  %></p>
+    <%= link_to '削除', "/recipes/#{@recipe.id}", method: :delete %>
+    <p><%= link_to '編集', "/recipes/#{@recipe.id}/edit" %></p>
+    <%= link_to '戻る', '/' %>
