@@ -16,17 +16,19 @@ class TopController < ApplicationController
       render "login.html.erb"
     else
       if BCrypt::Password.new(user.pass) == pass
-      　session[:login_name] = name
-      　flash[:notice] = "ログインしました（#{session[:login_name]}）"
-      　redirect_to recipes_path
-    　else
-      　flash[:notice] = 'パスワードが間違っています'
-      　render "login.html.erb"
+        session[:login_name] = name
+        flash[:notice] = "ログインしました（#{session[:login_name]}）"
+        redirect_to recipes_path
+      else
+        flash[:notice] = 'パスワードが間違っています'
+        render "login.html.erb"
       end
     end
   end
   
   def logout
+    session[:login_name] = nil
+    redirect_to root_path
   end
   
   
