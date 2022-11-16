@@ -28,6 +28,7 @@ class TopController < ApplicationController
   
   def logout
     session[:login_name] = nil
+    flash[:notice] = 'ログアウトしました'
     redirect_to root_path
   end
   
