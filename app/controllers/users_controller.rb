@@ -8,6 +8,29 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @user = User.find(params[:id])
+  
+  end
+  
+  def update
+    if params[:user][:name] == nil or params[:user][:mail] == nil
+      flash[:notice] = 'アカウント情報の更新に失敗しました1'
+      render 'edit'
+    else
+      @user = User.find(params[:id])
+      logger.debug(params[:id])
+      name = params[:user][:name]
+      mail = params[:user][:mail]
+      if @user.update(name: name, mail: mail)
+        redirect_to user_path(params[:id])
+      else
+        flash[:notice] = 'アカウント情報の更新に失敗しました2'
+        logger.debug(params[:user][:name])
+        logger.debug(params[:user][:mail])
+        render 'edit'
+      end
+    end
+      
   end
   
   def create

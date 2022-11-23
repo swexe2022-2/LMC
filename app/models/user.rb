@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    validates :password, presence: true, confirmation: true
+    validates :password, presence: true, confirmation: true, on: :create
     validates :name, presence: true
     
     attr_accessor :password, :password_confirmation

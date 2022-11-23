@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # post 'recipes/{:id}/edit', to: 'recipes#edit'
   # get 'users/{:id}', to: 'users#show'
   # post 'users/{:id}/edit', to: 'users#edit'
+  patch "users/:id/update", to: "users#update"
   root 'recipes#index'
   get 'top/main'
   post 'top/login'
