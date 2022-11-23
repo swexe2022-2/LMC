@@ -1,0 +1,20 @@
+アカウント情報を編集する<br>
+
+<%= "#{@user.id}" %>
+
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
+
+<%= form_for @user, url: {action: :update} do |t| %>
+
+    <%= t.text_field :name %><br>
+    <%= t.text_field :mail %><br><br>
+    <%= t.submit '決定'%>
+        
+<% end %>
+
+<%= link_to '退会する', user_path(@user.id), method: :delete, :data => {:confirm => '本当に退会しますか？'}  %><br>
+<%= link_to '戻る', user_path(@user.id) %><br>
+
+
