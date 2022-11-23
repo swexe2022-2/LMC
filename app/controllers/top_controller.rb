@@ -8,6 +8,7 @@ class TopController < ApplicationController
   end
   
   def login
+
     name = params[:name]
     pass = params[:pass]
     user= User.find_by(name: name)

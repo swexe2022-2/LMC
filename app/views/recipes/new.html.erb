@@ -1,2 +1,33 @@
-<h1>Recipes#new</h1>
-<p>Find me in app/views/recipes/new.html.erb</p>
+<%= form_for @recipe , url: {action: :create} do |f| %>
+    <p><%= f.label :fname, '料理名' %>
+    <%= f.text_field :fname %></p>
+    <p><%= f.label :ingredients, '材料' %></p>
+    <%= f.text_area :ingredients, :cols => 40, :rows => 10 %>
+    <p><%= f.label :process, '手順' %></p>
+    <%= f.text_area :process,:cols => 40, :rows => 10 %>
+    <p><%= f.label :tag, 'タグ' %></p>
+    <label>
+    <%= f.radio_button :tag,"朝ごはん" %>朝ごはん</label>
+    <label><%= f.radio_button :tag,"昼ごはん" %>昼ごはん</label>
+    <label><%= f.radio_button :tag,"夜ごはん" %>夜ごはん</label>
+    <label><%= f.radio_button :tag,"和食" %>和食</label>
+    <label><%= f.radio_button :tag,"洋食" %>洋食</label>
+    <label><%= f.radio_button :tag,"中華料理" %>中華料理</label>
+    <label><%= f.radio_button :tag,"インド料理" %>インド料理</label>
+    <label><%= f.radio_button :tag,"韓国料理" %>韓国料理</label>
+    <label><%= f.radio_button :tag,"イタリア料理" %>イタリア料理</label>
+    <label><%= f.radio_button :tag,"フランス料理" %>フランス料理</label>
+    <label><%= f.radio_button :tag,"メキシコ料理" %>メキシコ料理</label>
+    <label><%= f.radio_button :tag,"南国系" %>南国系</label>
+    <label><%= f.radio_button :tag,"サラダ類" %>サラダ類</label>
+    <label><%= f.radio_button :tag,"ヘルシー" %>ヘルシー</label>
+    <label><%= f.radio_button :tag,"節約" %>節約</label>
+    <p>----------------------------------------------------------------------------------------------------------------------------------</p>
+
+    <p><%= f.label :image, '画像' %></p>
+    <%= f.file_field :image %>
+    <p><%= f.label :movie, '動画' %></p>
+    <%= f.file_field :movie %>
+    
+    <p><%= f.submit '投稿' %></p>
+<% end %>

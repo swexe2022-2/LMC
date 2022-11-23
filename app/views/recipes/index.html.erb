@@ -1,4 +1,21 @@
-recipes/index.html.erb<br>
+
+レシピ一覧
+<p>-----------------------------------------------------------------------------------------------------------------------------</p>
+<% @recipes.each do |recipe| %>
+
+    <p>料理名</p>
+    <p><%= recipe.fname %></p>
+    タグ
+    <p><%= recipe.tag %></p> 
+    <p><%= image_tag "/get_reciepe/#{recipe.id}" %></p>
+    <%= link_to '詳細', "/recipes/#{recipe.id}" %>
+
+    
+
+<% end %>
+<p><%= link_to '投稿', '/recipes/new' %></p>
+
+
 
 <% if current_user %>
 <%= "#{current_user.name}でログイン中" %><br>
@@ -14,3 +31,4 @@ recipes/index.html.erb<br>
 <% if flash[:notice] %>
 	<%= flash[:notice] %>
 <% end %>
+
