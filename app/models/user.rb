@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     validates :password, presence: true, confirmation: true, on: :create
     validates :name, presence: true
+    has_many :recipes, dependent: :destroy
     
     attr_accessor :password, :password_confirmation
     

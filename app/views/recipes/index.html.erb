@@ -13,7 +13,8 @@
     
 
 <% end %>
-<p><%= link_to '投稿', '/recipes/new' %></p>
+<!--<p><%= link_to '投稿', '/recipes/new' %></p>-->
+<%= link_to '投稿', new_recipe_path(current_user.id) %>
 
 
 

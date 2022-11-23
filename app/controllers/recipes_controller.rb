@@ -4,7 +4,11 @@ class RecipesController < ApplicationController
   end
   
   def new
-    @recipe = Recipe.new 
+    if current_user == nil
+      redirect_to new_user_path
+    else
+      @recipe = Recipe.new
+    end
   end
   
   def get_reciepe
@@ -29,11 +33,16 @@ class RecipesController < ApplicationController
     else
       movie = params[:recipe][:movie].read
     end
+    
+    
     ingredients = params[:recipe][:ingredients]
     process = params[:recipe][:process]
     tag = params[:recipe][:tag]
     recipe = Recipe.new(fname: fname , ingredients: ingredients,process: process, 
     tag: tag,image: image,movie: movie)
+    user = User.find(current_user.id)
+    #user.recipe << recipe
+    recipe.user = user
     recipe.save
     
     redirect_to '/'
