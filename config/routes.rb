@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'top/login'
   get 'get_reciepe/:id', to: 'recipes#get_reciepe'
   get 'get_reciepe2/:id', to: 'recipes#get_reciepe2'
+  get 'search' => 'recipes#search'
 
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
