@@ -1,2 +1,21 @@
 <h1>Top#login</h1>
 <p>Find me in app/views/top/login.html.erb</p>
+
+<h1>ログイン</h1>
+
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
+
+<%= form_tag '/top/login' , method: :post do %>
+<%= label_tag :name, 'ユーザー名' %>
+<%= text_field_tag :name %><br>
+<%= label_tag :pass, 'パスワード' %>
+<%= password_field_tag :pass %><br>
+<%= submit_tag 'ログイン' ,class: "btn_edit" %>
+
+
+<%end%>
+
+<br>
+<%= link_to 'ユーザー登録', new_user_path %><br>

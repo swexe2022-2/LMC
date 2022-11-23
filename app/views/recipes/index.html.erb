@@ -1,0 +1,16 @@
+recipes/index.html.erb<br>
+
+<% if current_user %>
+<%= "#{current_user.name}でログイン中" %><br>
+<%= link_to 'マイページ', user_path(current_user.id) %>
+<%= link_to 'ログアウト', top_logout_path, method: :post %><br>
+<% else %>
+<br>
+<%= link_to 'ユーザー登録', new_user_path %><br>
+<%= link_to 'ログイン', top_main_path %><br>
+<% end %>
+
+
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
