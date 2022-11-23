@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   
   def update
     if params[:user][:name] == nil or params[:user][:mail] == nil
-      flash[:notice] = 'アカウント情報の更新に失敗しました1'
+      flash[:notice] = 'アカウント情報の更新に失敗しました'
       render 'edit'
     else
       @user = User.find(params[:id])
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       if @user.update(name: name, mail: mail)
         redirect_to user_path(params[:id])
       else
-        flash[:notice] = 'アカウント情報の更新に失敗しました2'
+        flash[:notice] = 'アカウント情報の更新に失敗しました'
         logger.debug(params[:user][:name])
         logger.debug(params[:user][:mail])
         render 'edit'
@@ -57,5 +57,9 @@ class UsersController < ApplicationController
   end
   
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = '退会しました'
+    redirect_to root_path
   end
 end
