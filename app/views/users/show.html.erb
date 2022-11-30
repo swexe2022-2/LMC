@@ -1,5 +1,11 @@
 <%= "#{@user.name}さんのマイページ" %><br>
-
+<% @recipes.each do |recipe| %>
+    料理名
+    <p><%= recipe.fname %></p>
+    材料
+    <p><%= safe_join(recipe.ingredients.split("\n"),tag(:br)) %></p>
+<%= link_to '詳細', "/recipes/#{recipe.id}" %>
+<% end %>
 
 <%= link_to 'アカウント情報を編集する', edit_user_path(@user.id) %><br>
 <%= link_to 'トップ', root_path %><br>

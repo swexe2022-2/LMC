@@ -7,7 +7,7 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.string :tag
       t.binary :movie
       t.binary :image
-      t.integer :user_id
+      t.integer :user_id, null: false
 
       t.timestamps
     end
