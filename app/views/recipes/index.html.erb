@@ -12,6 +12,14 @@
     
 
 <% end %>
+
+<br>
+<% if current_user %>
+    <%= link_to '投稿', new_recipe_path(current_user.id) %>
+<% else %>
+    <%= link_to '投稿', '/recipes/new' %>
+<% end %>
+
 <div class="search-form">
   <%= form_with url: search_path, method: :get, local: true do |f| %>
     <%= f.text_field :keyword, value: @keyword %>
@@ -21,10 +29,7 @@
 
 
 
-
-
-
-
+<br>
 <% if current_user %>
 <%= "#{current_user.name}でログイン中" %><br>
 <p><%= link_to '投稿', '/recipes/new' %></p>
