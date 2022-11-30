@@ -7,8 +7,12 @@
     タグ
     <p><%= @recipe.tag %></p>    
     
+    <% if @recipe.image != nil %>
     <p><%= image_tag "/get_reciepe/#{@recipe.id}" %></p>
+    <% end %>
+    <% if @recipe.movie != nil %>
     <p><%= video_tag("/get_reciepe2/#{@recipe.id}", size: "500x300", autoplay: true, muted: true,controls: true)  %></p>
+    <% end %>
     
     <% if @recipe.user == current_user %>
     <%= link_to '削除', "/recipes/#{@recipe.id}", method: :delete, :data => {:confirm => '本当に削除しますか？'} %>
