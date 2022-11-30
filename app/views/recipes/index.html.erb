@@ -13,11 +13,15 @@
     
 
 <% end %>
-<!--<p><%= link_to '投稿', '/recipes/new' %></p>-->
-<%= link_to '投稿', new_recipe_path(current_user.id) %>
+
+<% if current_user %>
+    <%= link_to '投稿', new_recipe_path(current_user.id) %>
+<% else %>
+    <%= link_to '投稿', '/recipes/new' %>
+<% end %>
 
 
-
+<br>
 <% if current_user %>
 <%= "#{current_user.name}でログイン中" %><br>
 <%= link_to 'マイページ', user_path(current_user.id) %>
