@@ -13,3 +13,11 @@ $(document).on("turbolinks:before-cache", function () {
   $('.dropdown-trigger').dropdown('destroy');
   $('.modal').modal('destroy');
 });
+
+
+
+// Or with jQuery
+
+$(document).ready(function(){
+  $('select').formSelect();
+});
