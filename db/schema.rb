@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2022_11_02_082716) do
     t.string "tag"
     t.binary "movie"
     t.binary "image"
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
