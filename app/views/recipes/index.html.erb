@@ -21,12 +21,13 @@
 
 
 
-<p><%= link_to '投稿', '/recipes/new' %></p>
+
 
 
 
 <% if current_user %>
 <%= "#{current_user.name}でログイン中" %><br>
+<p><%= link_to '投稿', '/recipes/new' %></p>
 <%= link_to 'マイページ', user_path(current_user.id) %>
 <%= link_to 'ログアウト', top_logout_path, method: :post %><br>
 <% else %>
