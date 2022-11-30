@@ -15,7 +15,7 @@
 
 <br>
 <% if current_user %>
-    <%= link_to '投稿', new_recipe_path(current_user.id) %>
+    <%= link_to '投稿', new_recipe_path(current_user.id)%>
 <% else %>
     <%= link_to '投稿', '/recipes/new' %>
 <% end %>
@@ -33,7 +33,7 @@
 
 <% if current_user %>
 <%= "#{current_user.name}でログイン中" %><br>
-
+<%= link_to('マイページ', user_path(current_user.id),{class: "waves-effect waves-light btn"}) %>
 <%= link_to 'マイページ', user_path(current_user.id) %>
 <%= link_to 'ログアウト', top_logout_path, method: :post %><br>
 <% else %>
