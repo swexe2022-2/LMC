@@ -34,7 +34,6 @@ class RecipesController < ApplicationController
       movie = params[:recipe][:movie].read
     end
     
-    
     ingredients = params[:recipe][:ingredients]
     process = params[:recipe][:process]
     tag = params[:recipe][:tag]
@@ -58,8 +57,11 @@ class RecipesController < ApplicationController
     redirect_to '/'
   end
   
-  def edit 
+  def edit
     @recipe = Recipe.find(params[:id])
+    if current_user != @recipe.user
+      redirect_to recipe_path(params[:id])
+    end
   end
   
   def update
