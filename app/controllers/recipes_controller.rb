@@ -66,7 +66,7 @@ class RecipesController < ApplicationController
   end
   
   def update
-    @home = Home.find(params[:id])
+    @recipes = Recipe.find(params[:id])
     fname = params[:recipe][:fname]
     if params[:recipe][:image] == nil
       image = nil
@@ -81,7 +81,7 @@ class RecipesController < ApplicationController
     ingredients = params[:recipe][:ingredients]
     process = params[:recipe][:process]
     tag = params[:recipe][:tag]
-    @recipe.update(fname: fname ,ingredients: ingredients,process: process, 
+    @recipes.update(fname: fname ,ingredients: ingredients,process: process, 
     tag: tag,image: image, movie: movie)
     redirect_to '/'
     
