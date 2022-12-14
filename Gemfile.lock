@@ -192,11 +192,8 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.5.4)
       mini_portile2 (~> 2.8.0)
-
-    sqlite3 (1.5.4-x86_64-linux)
     terser (1.1.13)
       execjs (>= 0.3.0, < 3)
-
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.11)

@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ @import 'materialize';
  
 .site-header{
     background: #fff;
@@ -27,5 +28,3 @@
 .site-header.hide{
     top: -63px;
 }
-
-@import 'materialize';

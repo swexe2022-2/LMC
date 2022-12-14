@@ -57,7 +57,7 @@
     
   </ul>
     <div style="padding:20px">
-      <p><%= "#{current_user.name}さん" %></p>
+      <p><%= "#{current_user&.name}" %></p>
     <%= yield %>
     </div>
   </body>
