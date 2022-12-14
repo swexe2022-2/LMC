@@ -1,47 +1,92 @@
-<font size="4">レシピ一覧</font>
-<p>-----------------------------------------------------------------------------------------------------------------------------</p>
-<% @recipes.each do |recipe| %>
 
-    <p>　【料理名】</p>
-    <p>　<%= recipe.fname %></p>
-    　【タグ】
-    <p>　<%= recipe.tag %></p>
-    <% if recipe.image != nil %>
-    <p>　<%= image_tag "/get_reciepe/#{recipe.id}" %></p>
-    <% end %>
-    <%= link_to('詳細', "/recipes/#{recipe.id}",{class: "waves-effect waves-light btn"}) %>
+<h4>レシピ</h4>
 
-<% end %>
-<p>-----------------------------------------------------------------------------------------------------------------------------</p>
-<br>ユーザー投稿</br>
-<% if current_user %>
-    <%= link_to('投稿', new_recipe_path(current_user.id),{class: "waves-effect waves-light btn"})%>
-<% else %>
-    <%= link_to('投稿', '/recipes/new',{class: "waves-effect waves-light btn"}) %>
-<% end %>
+<!--検索バー-->
+<%= form_with url: search_path, method: :get, local: true do |f| %>
+    
 
 <div class="search-form">
-  <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, value: @keyword %>
-    <%= f.submit "検索" %>
-  <% end %>
- </div>
+   <div class="row">
+    <div class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">youtube_searched_for</i>
+          
+          <%= f.text_field :keyword, :placeholder => "料理名、食材名、タグを入力", value: @keyword ,class: "autocomplete" %>
+          <div class="input_wrap", style="text-align: center">
+            <div class="row">
+            
+            <!--<% @tag_list.each do |t| %>-->
+            <!--<div class="col s12 m4 l2", style = "padding-top:10px">-->
+            <!--  <%= button_to "#", :class => 'waves-effect waves-light btn-large', :method => :get do %>-->
+            <!--    <%= t %>-->
+            <!--  <% end %>-->
+            <!--  </div>-->
+            <!--<% end %>-->
+            <!--</div><br>-->
+          <%= f.submit "検索" ,class: "waves-effect waves-light btn-large"%>
+          
+        
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-<br></br>
-
-<% if current_user %>
-<%= "#{current_user.name}でログイン中" %><br>
-<%= link_to('マイページ', user_path(current_user.id),{class: "waves-effect waves-light btn"}) %>
-
-<p><%= button_to top_logout_path,:class => "waves-effect waves-light btn",:method => :post do  %>
-<i class="material-icons left">brightness_2</i>ログアウト
-<% end %></p>
-<% else %>
-<br>
-<%= link_to 'ユーザー登録', new_user_path %><br>
-<%= link_to 'ログイン', top_main_path %><br>
 <% end %>
+
+
+
+
+
+
+
+<!--料理一覧-->
+<div class="row">
+<% @recipes.each do |recipe| %>
+  <div class="col s12 m4 l2">
+    <div class="card">
+      <div class="card-image">
+        <% if recipe.image != nil %>
+      　　<%= image_tag("/get_reciepe/#{recipe.id}",size: '150x150') %>
+    　　<% else %>
+      　　<%= image_tag('obentou.png',size: '150x150') %>
+    　　<% end %>
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4"><%= link_to recipe.fname, "/recipes/#{recipe.id}" %></span>
+        <p><%= recipe.tag %></p>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+</div>
+
+<div class="row">
+  <div class="col s4">
+    <div>
+      <% if current_user %>
+          <%= link_to '投稿', new_recipe_path(current_user.id), class: "waves-effect waves-light btn"%>
+      <% else %>
+          <%= link_to '投稿', '/recipes/new', class: "waves-effect waves-light btn" %>
+      <% end %>
+    </div>
+    <!--<div>-->
+    <!--  <% if current_user %>-->
+    <!--    <%= link_to('マイページ', user_path(current_user.id),{class: "waves-effect waves-light btn"}) %>-->
+        
+    <!--    <%= link_to 'ログアウト', top_logout_path, method: :post ,class: "waves-effect waves-light btn"%><br>-->
+    <!--    <% else %>-->
+    <!--    <%= link_to 'ユーザー登録', new_user_path ,class: "waves-effect waves-light btn"%><br>-->
+    <!--    <%= link_to 'ログイン', top_main_path ,class: "waves-effect waves-light btn"%><br>-->
+    <!--  <% end %>-->
+    <!--</div>-->
+  </div>
+</div>
+
 
 
 <% if flash[:notice] %>
