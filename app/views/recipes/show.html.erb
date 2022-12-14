@@ -1,10 +1,10 @@
-    料理名
+    【料理名】
     <p><%= @recipe.fname %></p>
-    材料
+    【材料】
     <p><%= safe_join(@recipe.ingredients.split("\n"),tag(:br)) %></p>
-    手順
+    【手順】
     <p><%= safe_join(@recipe.process.split("\n"),tag(:br)) %></p>
-    タグ
+    【タグ】
     <p><%= @recipe.tag %></p>    
     
     <% if @recipe.image != nil %>
@@ -15,7 +15,13 @@
     <% end %>
     
     <% if @recipe.user == current_user %>
-    <%= link_to '削除', "/recipes/#{@recipe.id}", method: :delete, :data => {:confirm => '本当に削除しますか？'} %>
-    <p><%= link_to '編集', "/recipes/#{@recipe.id}/edit" %></p>
+    <%= button_to "/recipes/#{@recipe.id}", method: :delete, :data => {:confirm => '本当に削除しますか？'},:class => "waves-effect waves-light btn",:method => :get do  %>
+    <i class="material-icons left">block</i>削除
     <% end %>
-    <%= link_to '戻る', '/' %>
+    <p><%= button_to "/recipes/#{@recipe.id}/edit",:class => "waves-effect waves-light btn",:method => :get do  %>
+    <i class="material-icons left">border_color</i>編集
+    <% end %></p>
+    <% end %>
+    <%= button_to '/',:class => "waves-effect waves-light btn",:method => :get do  %>
+    <i class="material-icons left">directions_run</i>戻る 
+    <% end %>
