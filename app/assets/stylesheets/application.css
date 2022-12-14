@@ -14,7 +14,7 @@
  *= require_self
  */
  
- .site-header{
+.site-header{
     background: #fff;
     display: flex;
     justify-content: space-between;
