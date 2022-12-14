@@ -1,23 +1,23 @@
-レシピ一覧
+<font size="4">レシピ一覧</font>
 <p>-----------------------------------------------------------------------------------------------------------------------------</p>
 <% @recipes.each do |recipe| %>
 
-    <p>料理名</p>
-    <p><%= recipe.fname %></p>
-    タグ
-    <p><%= recipe.tag %></p>
+    <p>　【料理名】</p>
+    <p>　<%= recipe.fname %></p>
+    　【タグ】
+    <p>　<%= recipe.tag %></p>
     <% if recipe.image != nil %>
-    <p><%= image_tag "/get_reciepe/#{recipe.id}" %></p>
+    <p>　<%= image_tag "/get_reciepe/#{recipe.id}" %></p>
     <% end %>
-    <%= link_to '詳細', "/recipes/#{recipe.id}" %>
+    <%= link_to('詳細', "/recipes/#{recipe.id}",{class: "waves-effect waves-light btn"}) %>
 
 <% end %>
-
-<br>
+<p>-----------------------------------------------------------------------------------------------------------------------------</p>
+<br>ユーザー投稿</br>
 <% if current_user %>
-    <%= link_to '投稿', new_recipe_path(current_user.id)%>
+    <%= link_to('投稿', new_recipe_path(current_user.id),{class: "waves-effect waves-light btn"})%>
 <% else %>
-    <%= link_to '投稿', '/recipes/new' %>
+    <%= link_to('投稿', '/recipes/new',{class: "waves-effect waves-light btn"}) %>
 <% end %>
 
 <div class="search-form">
@@ -35,7 +35,9 @@
 <%= "#{current_user.name}でログイン中" %><br>
 <%= link_to('マイページ', user_path(current_user.id),{class: "waves-effect waves-light btn"}) %>
 
-<%= link_to 'ログアウト', top_logout_path, method: :post %><br>
+<p><%= button_to top_logout_path,:class => "waves-effect waves-light btn",:method => :post do  %>
+<i class="material-icons left">brightness_2</i>ログアウト
+<% end %></p>
 <% else %>
 <br>
 <%= link_to 'ユーザー登録', new_user_path %><br>

@@ -1,10 +1,10 @@
-    料理名
+    【料理名】
     <p><%= @recipe.fname %></p>
-    材料
+    【材料】
     <p><%= safe_join(@recipe.ingredients.split("\n"),tag(:br)) %></p>
-    手順
+    【手順】
     <p><%= safe_join(@recipe.process.split("\n"),tag(:br)) %></p>
-    タグ
+    【タグ】
     <p><%= @recipe.tag %></p>    
     
     <% if @recipe.image != nil %>

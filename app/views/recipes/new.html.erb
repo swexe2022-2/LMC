@@ -18,4 +18,6 @@
     <p><%= f.submit '投稿' %></p>
 <% end %><br>
 
-<%= link_to '戻る', root_path %>
+<%= button_to root_path,:class => "waves-effect waves-light btn",:method => :get do  %>
+<i class="material-icons left">directions_run</i>戻る 
+<% end %>
