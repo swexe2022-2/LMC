@@ -9,8 +9,7 @@
   
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="stylesheets/css/materialize.min.css"  media="screen,projection"/>
+   
     <!--アイコン用-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
@@ -29,6 +28,7 @@
     <nav class="nav-extended">
     <div class="nav-wrapper">
       <a href="/" class="brand-logo">LMC</a>
+      
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if current_user %>
@@ -53,6 +53,7 @@
     
   </ul>
     <div style="padding:20px">
+      <p><%= "#{current_user.name}さん" %></p>
     <%= yield %>
     </div>
   </body>
