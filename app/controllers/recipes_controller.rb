@@ -1,6 +1,9 @@
 class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
+    @tag_list = ["朝ごはん","昼ごはん","夜ごはん","和食","洋食","インド料理",
+      "中華料理","韓国料理","イタリア料理","フランス料理","メキシコ料理","南国系",
+      "サラダ類","ヘルシー","節約"]
   end
   
   def new
@@ -90,6 +93,7 @@ class RecipesController < ApplicationController
     def search
       @recipes = Recipe.search(params[:keyword])
       @keyword = params[:keyword]
+      
       render "index"
     end 
 end
