@@ -50,13 +50,21 @@
     <div class="card">
       <div class="card-image">
         <% if recipe.image != nil %>
-      　　<%= image_tag("/get_reciepe/#{recipe.id}",size: '150x150') %>
+      　　<%= image_tag("/get_reciepe/#{recipe.id}") %>
     　　<% else %>
-      　　<%= image_tag('obentou.png',size: '150x150') %>
+      　　<%= image_tag('obentou.png') %>
     　　<% end %>
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4"><%= link_to recipe.fname, "/recipes/#{recipe.id}" %></span>
+        <span class="card-title activator grey-text text-darken-4">
+          <%= link_to "/recipes/#{recipe.id}" do %>
+            <div class="overflow-wrap">
+              <div class="break-word ">
+               <P><%= recipe.fname %></P>
+              </div>
+            </div>
+          <% end %>
+        </span>
         <p><%= recipe.tag %></p>
       </div>
     </div>

@@ -1,3 +1,5 @@
+    【投稿者】
+    <p><%= @recipe.user.name %></p>
     【料理名】
     <p><%= @recipe.fname %></p>
     【材料】
@@ -15,7 +17,7 @@
     <% end %>
     
     <% if @recipe.user == current_user %>
-    <%= button_to "/recipes/#{@recipe.id}", method: :delete, :data => {:confirm => '本当に削除しますか？'},:class => "waves-effect waves-light btn",:method => :get do  %>
+    <%= button_to recipe_path(@recipe.id), :data => {:confirm => '本当に削除しますか？'},:class => "waves-effect waves-light btn",:method => :delete do  %>
     <i class="material-icons left">block</i>削除
     <% end %>
     <p><%= button_to "/recipes/#{@recipe.id}/edit",:class => "waves-effect waves-light btn",:method => :get do  %>
@@ -25,3 +27,5 @@
     <%= button_to '/',:class => "waves-effect waves-light btn",:method => :get do  %>
     <i class="material-icons left">directions_run</i>戻る 
     <% end %>
+    
+
