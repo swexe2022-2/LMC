@@ -1,6 +1,10 @@
 
-<h4>レシピ</h4>
 
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
+<br>
+<h5>レシピを探す</h5>
 <!--検索バー-->
 <%= form_with url: search_path, method: :get, local: true do |f| %>
     
@@ -15,7 +19,7 @@
           <%= f.text_field :keyword, :placeholder => "料理名、食材名を入力", value: @keyword ,class: "autocomplete" %>
           <div class="input_wrap", style="text-align: center">
 
-          <%= f.submit "検索" ,class: "waves-effect waves-light btn-large deep-orange accent-1"%>
+          <%= f.submit "検索" ,class: "button"%>
           
         
           </div>
@@ -28,24 +32,22 @@
 
 <% end %>
 
-
-   <div class="row">
-    <div class="col s12">
-      <div class="row">
-        <% @tag_list.each do |t| %>
-          <div class="col", style = "padding-top:10px">
-            
-            <%= form_with url: tag_search_path, method: :get, local: true do |f| %>
-              <%= f.hidden_field :keyword, value: t %>
-
-                <%= f.submit t ,class: "waves-effect waves-light btn-large amber lighten-4"%>
-            <% end %>
-          </div>
-        <% end %>
-        
-      </div>
+<h5>タグ検索</h5>
+<div class="row">
+  <div class="col s12">
+    <div class="row">
+      <% @tag_list.each do |t| %>
+        <div class="col", style = "padding-top:10px">
+          <%= form_with url: tag_search_path, method: :get, local: true do |f| %>
+            <%= f.hidden_field :keyword, value: t %>
+            <%= f.submit t ,class: "waves-effect waves-light btn-large amber lighten-4"%>
+          <% end %>
+        </div>
+      <% end %>
     </div>
+  </div>
 </div>
+
 
 <%= form_with url: tag_search_path, method: :get, local: true do |f| %>
   <div class="search-form">
@@ -53,13 +55,16 @@
         <div class="row">
           <%= f.hidden_field :keyword, value: "" %>
           <div class="input_wrap", style="text-align: center">
-            <%= f.submit "検索条件をリセット" ,class: "waves-effect waves-light btn-large deep-orange accent-1"%>
+            <%= f.submit "検索条件をリセット" ,class: "button"%>
           </div>
+        </div>
       </div>
   </div>
 <% end %>
 
 
+
+<h5>レシピ一覧</h5>
 <!--料理一覧-->
 <div class="row">
 <% @recipes.each do |recipe| %>
@@ -94,9 +99,9 @@
   <div class="col s4">
     <div>
       <% if current_user %>
-          <%= link_to '投稿', new_recipe_path(current_user.id), class: "waves-effect waves-light btn"%>
+          <%= link_to 'レシピを投稿する', new_recipe_path(current_user.id), class: "waves-effect waves-light btn deep-orange accent-1"%>
       <% else %>
-          <%= link_to '投稿', '/recipes/new', class: "waves-effect waves-light btn" %>
+          <%= link_to 'レシピを投稿する', '/recipes/new', class: "waves-effect waves-light btn deep-orange accent-1" %>
       <% end %>
     </div>
     <!--<div>-->
@@ -114,8 +119,6 @@
 
 
 
-<% if flash[:notice] %>
-	<%= flash[:notice] %>
-<% end %>
+
 
 
