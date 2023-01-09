@@ -1,3 +1,6 @@
+html{
+  scroll-behavior: smooth;
+}
 
 .button {
   display       : inline-block;
@@ -12,7 +15,54 @@
   transition    : .3s;         /* なめらか変化 */
   box-shadow    : 3px 3px 2px #666666;  /* 影の設定 */
   border        : 2px solid #ff9e80;    /* 枠の指定 */
-}// Place all the styles related to the recipes controller here.
+}
+
+.button:hover {
+  background: #ffccbc;
+  color: rgb(255, 255, 255);
+}
+
+/* タグ検索ボタン */
+.tag_button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 13pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #fbc02d;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 3px 3px 2px #666666;  /* 影の設定 */
+  border        : 2px solid #ff9e80;    /* 枠の指定 */
+}
+
+.tag_button:hover {
+  background: #fdd835;
+  color: rgb(255, 255, 255);
+}
+
+/* トップへ戻るボタン */
+.page_top_btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-weight: bold;
+  padding: 0.7em;
+  text-align: center;
+  background: #ee6e73;
+  color: #fff;
+  transition: 0.3s0;
+}
+
+/* マウスオーバー時 */
+.page_top_btn:hover {
+  background: #ffcdd2;
+  color: rgb(255, 255, 255);
+}
+
+// Place all the styles related to the recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 

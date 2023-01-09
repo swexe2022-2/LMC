@@ -40,7 +40,7 @@
         <div class="col", style = "padding-top:10px">
           <%= form_with url: tag_search_path, method: :get, local: true do |f| %>
             <%= f.hidden_field :keyword, value: t %>
-            <%= f.submit t ,class: "waves-effect waves-light btn-large amber lighten-4"%>
+            <%= f.submit t ,class: "tag_button"%>
           <% end %>
         </div>
       <% end %>
@@ -82,12 +82,13 @@
           <%= link_to "/recipes/#{recipe.id}" do %>
             <div class="overflow-wrap">
               <div class="break-word ">
-               <P><%= recipe.fname %></P>
+               <h5><%= recipe.fname %></h5>
               </div>
             </div>
           <% end %>
         </span>
-        <p><%= recipe.tag %></p>
+        <p><%= recipe.tag %></p><br>
+        <p><%= safe_join(recipe.ingredients.split("\n"),tag(:br)) %></p>
       </div>
     </div>
   </div>
@@ -99,9 +100,9 @@
   <div class="col s4">
     <div>
       <% if current_user %>
-          <%= link_to 'レシピを投稿する', new_recipe_path(current_user.id), class: "waves-effect waves-light btn deep-orange accent-1"%>
+          <%= link_to 'レシピを投稿する', new_recipe_path(current_user.id), class: "button"%>
       <% else %>
-          <%= link_to 'レシピを投稿する', '/recipes/new', class: "waves-effect waves-light btn deep-orange accent-1" %>
+          <%= link_to 'レシピを投稿する', '/recipes/new', class: "button" %>
       <% end %>
     </div>
     <!--<div>-->
@@ -118,7 +119,7 @@
 </div>
 
 
-
+<a href="#page_top" class="page_top_btn">トップへ戻る</a>
 
 
 
