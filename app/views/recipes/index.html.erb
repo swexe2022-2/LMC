@@ -47,7 +47,7 @@
 <div class="row">
 <% @recipes.each do |recipe| %>
   <div class="col s12 m4 l2">
-    <div class="card">
+    <div class="card large">
       <div class="card-image">
         <% if recipe.image != nil %>
       　　<%= image_tag("/get_reciepe/#{recipe.id}") %>
