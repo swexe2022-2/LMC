@@ -67,15 +67,20 @@
 <h5>レシピ一覧</h5>
 <!--料理一覧-->
 <div class="row">
+
 <% @recipes.each do |recipe| %>
   <div class="col s12 m4 l2">
     <div class="card large">
-      <div class="card-image">
-        <% if recipe.image != nil %>
-      　　<%= image_tag("/get_reciepe/#{recipe.id}") %>
-    　　<% else %>
-      　　<%= image_tag('obentou.png') %>
-    　　<% end %>
+      <div class="card-image", style="align: center">
+        <div class="flex-item">
+          <div class="image-wrap">
+          <% if recipe.image != nil %>
+        　　<%= image_tag("/get_reciepe/#{recipe.id}") %>
+      　　<% else %>
+        　　<%= image_tag('no_image.jpg') %>
+      　　<% end %>
+      　　</div>
+    　　</div>
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">
