@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
   
   def new
     if current_user == nil
-      redirect_to new_user_path
+      redirect_to top_main_path
     else
       @recipe = Recipe.new
     end

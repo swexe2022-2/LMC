@@ -41,6 +41,7 @@
           <li><%= link_to 'ログアウト', top_logout_path, method: :post %></a></li>
         <% else %>
           <li><%= link_to '投稿', '/recipes/new' %></li>
+          <li><%= link_to 'ログイン', top_main_path %></li>
         <% end %>
       </ul>
     </div>
@@ -53,6 +54,7 @@
       <li><%= link_to 'ログアウト', top_logout_path, method: :post %></a></li>
     <% else %>
       <li><%= link_to '投稿', '/recipes/new' %></li>
+      <li><%= link_to 'ログイン', top_main_path %></li>
     <% end %>
     
   </ul>
