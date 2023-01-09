@@ -94,9 +94,17 @@ class RecipesController < ApplicationController
     def search
       @recipes = Recipe.search(params[:keyword])
       @keyword = params[:keyword]
-      @tag_list = ["朝ごはん","昼ごはん","夜ごはん","和食","洋食","インド料理",
-      "中華料理","韓国料理","イタリア料理","フランス料理","メキシコ料理","南国系",
-      "サラダ類","ヘルシー","節約"]
+      @tag_list = ["朝ごはん","昼ごはん","夜ごはん","インド料理",
+      "中華料理","韓国料理","イタリア料理","フランス料理","メキシコ料理",
+      "南国系"," 和食 "," 洋食 "," 節約 ","サラダ類","ヘルシー"]
       render "index"
-    end 
+    end
+    def tag_search
+      @recipes = Recipe.tag_search(params[:keyword])
+      @keyword = (params[:keyword])
+      @tag_list = ["朝ごはん","昼ごはん","夜ごはん","インド料理",
+      "中華料理","韓国料理","イタリア料理","フランス料理","メキシコ料理",
+      "南国系"," 和食 "," 洋食 "," 節約 ","サラダ類","ヘルシー"]
+      render "index"
+    end
 end

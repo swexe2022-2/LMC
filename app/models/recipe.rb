@@ -11,6 +11,12 @@ class Recipe < ApplicationRecord
         where(["ingredients like? OR fname like? OR tag like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
 
     end
+    
+    def self.tag_search(keyword)
+
+        where(["tag like?", "%#{keyword}%"])
+
+    end
 
 
 end

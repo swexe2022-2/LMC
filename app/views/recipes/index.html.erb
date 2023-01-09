@@ -12,22 +12,13 @@
         <div class="input-field col s12">
           <i class="material-icons prefix">youtube_searched_for</i>
           
-          <%= f.text_field :keyword, :placeholder => "料理名、食材名、タグを入力", value: @keyword ,class: "autocomplete" %>
+          <%= f.text_field :keyword, :placeholder => "料理名、食材名を入力", value: @keyword ,class: "autocomplete" %>
           <div class="input_wrap", style="text-align: center">
-            <div class="row">
-            
-            <!--<% @tag_list.each do |t| %>-->
-            <!--<div class="col s12 m4 l2", style = "padding-top:10px">-->
-            <!--  <%= button_to "#", :class => 'waves-effect waves-light btn-large', :method => :get do %>-->
-            <!--    <%= t %>-->
-            <!--  <% end %>-->
-            <!--  </div>-->
-            <!--<% end %>-->
-            <!--</div><br>-->
+
           <%= f.submit "検索" ,class: "waves-effect waves-light btn-large"%>
           
         
-        </div>
+          </div>
         </div>
       </div>
     </div>
@@ -37,9 +28,20 @@
 
 <% end %>
 
-
-
-
+<div class="row">
+    <div class="col s12">
+      <div class="row">
+        <% @tag_list.each do |t| %>
+          <div class="col", style = "padding-top:10px">
+            <%= form_with url: tag_search_path, method: :get, local: true do |f| %>
+              <%= f.hidden_field :keyword, value: t %>
+              <%= f.submit t ,class: "waves-effect waves-light btn-large"%>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>
 
 
 
