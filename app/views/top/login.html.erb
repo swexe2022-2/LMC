@@ -1,20 +1,22 @@
-<h5>ログイン</h5><br>
 
 <% if flash[:notice] %>
 	<p style="color: red"><%= flash[:notice] %></p>
 <% end %><br>
 
-<%= form_tag '/top/login' , method: :post do %>
-<%= label_tag :name, 'ユーザー名' %>
-<%= text_field_tag :name %><br>
-<%= label_tag :pass, 'パスワード' %>
-<%= password_field_tag :pass %><br>
-<div class="input_wrap", style="text-align: center">
-<%= submit_tag 'ログイン' ,class: "button" %>
+<div class="form">
+    <%= form_tag '/top/login', method: :post do %>
+        <h5 style="text-align: left">ログイン</h5><br>
+        <%= label_tag :name, 'ユーザー名' %>
+        <%= text_field_tag :name %><br>
+        <%= label_tag :pass, 'パスワード' %>
+        <%= password_field_tag :pass %>
+        
+        <div class="input_wrap", style="text-align: center">
+            <%= submit_tag 'ログイン' ,class: "button" %>
+        </div>
+    <%end%>
+    <br><p style="text-align: center">まだアカウントをお持ちでないですか？<%= link_to '新規登録', new_user_path %></p>
+
 </div>
 
-
-<%end%>
-
 <br>
-<p style="text-align: center">まだアカウントをお持ちでないですか？<%= link_to '新規登録', new_user_path %></p>

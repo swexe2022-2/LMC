@@ -2,6 +2,13 @@ html{
   scroll-behavior: smooth;
 }
 
+.form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .image-wrap{
   position: relative;
   overflow: hidden;
