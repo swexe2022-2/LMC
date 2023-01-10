@@ -1,6 +1,4 @@
-
-
-<h1>ログイン</h1>
+<h5>ログイン</h5><br>
 
 <% if flash[:notice] %>
 	<%= flash[:notice] %>
@@ -11,11 +9,12 @@
 <%= text_field_tag :name %><br>
 <%= label_tag :pass, 'パスワード' %>
 <%= password_field_tag :pass %><br>
-<%= submit_tag 'ログイン' ,class: "btn_edit" %>
+<div class="input_wrap", style="text-align: center">
+<%= submit_tag 'ログイン' ,class: "button" %>
+</div>
 
 
 <%end%>
 
 <br>
-<%= link_to 'ユーザー登録', new_user_path %><br>
-<%= link_to '戻る', root_path %>
+まだアカウントをお持ちでないですか？<%= link_to '新規登録', new_user_path %><br>

@@ -1,4 +1,4 @@
-<h1>ユーザー登録</h1>
+<h5>アカウントを作成</h5><br>
 
 <% if flash[:notice] %>
 	<%= flash[:notice] %>
@@ -13,8 +13,10 @@
 <%= f.password_field :password %><br>
 <%= f.label :password_confirmation, 'パスワードの確認' %><br>
 <%= f.password_field :password_confirmation %><br><br>
-<%= f.submit '登録' ,class: "btn_edit" %>
+<div class="input_wrap", style="text-align: center">
+<%= f.submit '登録' ,class: "button" %>
+</div>
 
 <%end%><br>
-<%= link_to 'ログイン', top_main_path %><br>
-<%= link_to '戻る', root_path %>
+
+すでにアカウントをお持ちですか？<%= link_to 'ログイン', top_main_path %><br>
