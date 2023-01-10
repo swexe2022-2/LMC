@@ -30,7 +30,7 @@
     <!--JavaScript at end of body for optimized loading-->
     <!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
     <nav class="nav-extended">
-    <div class="nav-wrapper">
+    <div class="nav-wrapper", style="padding: 0px 10px">
       <a href="/" class="brand-logo">LMC</a>
       
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -58,7 +58,7 @@
     <% end %>
     
   </ul>
-    <div style="padding:20px">
+    <div style="padding: 20px 50px"">
       <p><%= "#{current_user&.name}" %></p>
     <%= yield %>
     </div>

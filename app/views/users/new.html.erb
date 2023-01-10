@@ -1,8 +1,8 @@
 <h5>アカウントを作成</h5><br>
 
 <% if flash[:notice] %>
-	<%= flash[:notice] %>
-<% end %>
+	<p style="color: red"><%= flash[:notice] %></p>
+<% end %><br>
 
 <%= form_for @user , url: {action: :create} do |f| %>
 <%= f.label :name, 'ユーザー名' %><br>
@@ -14,9 +14,9 @@
 <%= f.label :password_confirmation, 'パスワードの確認' %><br>
 <%= f.password_field :password_confirmation %><br><br>
 <div class="input_wrap", style="text-align: center">
-<%= f.submit '登録' ,class: "button" %>
+<%= f.submit '作成' ,class: "button" %>
 </div>
 
 <%end%><br>
 
-すでにアカウントをお持ちですか？<%= link_to 'ログイン', top_main_path %><br>
+<p style="text-align: center">すでにアカウントをお持ちですか？<%= link_to 'ログイン', top_main_path %></p>

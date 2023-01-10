@@ -50,8 +50,11 @@ class UsersController < ApplicationController
       logger.debug(@user.pass)
       if @user.save
         redirect_to root_path
-      else
+      elsif password != password_confirmation
         flash[:notice] = 'パスワードが一致していません'
+        redirect_to new_user_path
+      else
+        flash[:notice] = 'アカウントの作成に失敗しました'
         redirect_to new_user_path
       end
     end
