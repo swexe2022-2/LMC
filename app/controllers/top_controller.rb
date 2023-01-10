@@ -12,18 +12,18 @@ class TopController < ApplicationController
     pass = params[:pass]
     user= User.find_by(name: name)
     if user == nil
-      flash[:notice] = 'ユーザーが存在しません。'
+      flash.now[:notice] = 'ユーザーが存在しません。'
       render "login.html.erb"
     else
       if BCrypt::Password.new(user.pass) == pass
         session[:login_name] = name
-        flash[:notice] = "ログインしました（#{session[:login_name]}）"
+        flash.now[:notice] = "ログインしました（#{session[:login_name]}）"
         redirect_to recipes_path
       elsif BCrypt::Password.new(user.pass) != pass
-        flash[:notice] = 'パスワードが間違っています'
+        flash.now[:notice] = 'パスワードが間違っています'
         render "login.html.erb"
       else
-        flash[:notice] = 'ログインに失敗しました'
+        flash.now[:notice] = 'ログインに失敗しました'
         render "login.html.erb"
       end
     end

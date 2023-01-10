@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
+     @user = User.new
   end
   
   def show
@@ -49,7 +49,9 @@ class UsersController < ApplicationController
       password_confirmation: password_confirmation, mail: mail)
       logger.debug(@user.pass)
       if @user.save
-        redirect_to root_path
+        flash[:notice] = 'アカウントの作成に成功しました'
+
+        redirect_to top_main_path
       elsif password != password_confirmation
         flash[:notice] = 'パスワードが一致していません'
         redirect_to new_user_path
