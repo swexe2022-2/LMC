@@ -2,7 +2,19 @@ html{
   scroll-behavior: smooth;
 }
 
+.search_form{
+  position: flex;
+  max-width: 500px;
+}
 
+.container {
+  margin: 25px;
+  // outline: dashed 1px black;
+  /* 水平・垂直方向の中央揃え */
+  // display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .image-wrap{
   position: relative;
