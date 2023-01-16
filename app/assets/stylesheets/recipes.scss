@@ -7,6 +7,14 @@ html{
   max-width: 500px;
 }
 
+.image-container {
+
+  border: solid 2px black;
+  width: 100%;
+  height: 100%;
+  
+}
+
 .container {
   margin: 25px;
   // outline: dashed 1px black;
@@ -17,23 +25,25 @@ html{
 }
 
 .image-wrap{
+  outline: solid 2px #ffffff;
   position: relative;
   overflow: hidden;
-  padding-top: 40%;
+  padding-top: 60%;
   margin: 10px 5px;
 }
 
 .image-wrap img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(0%,-50%);
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .flex-item {
-    flex-basis: 100%;
+  flex-basis: 100%;
 }
 
 .button {
