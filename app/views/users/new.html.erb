@@ -3,7 +3,7 @@
 	<p style="text-align: center"><%= flash[:notice] %></p>
 <% end %><br>
 
-<div class="form">
+<div class="form", style="transform: translate(-50%, -50%)">
     <%= form_for @user, url: {action: :create} do |f| %>
         <h5 style="text-align: left">アカウントを作成</h5><br>
         <%= f.label :name, 'ユーザー名' %><br>
