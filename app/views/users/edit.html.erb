@@ -1,20 +1,58 @@
-アカウント情報を編集する<br>
+<div class="container" >
+<ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope
+      itemtype="https://schema.org/ListItem">
+    <a itemprop="item" href="/">
+        <span itemprop="name">ホーム</span>
+    </a>
+    <meta itemprop="position" content="1" />
+  </li>
 
+  <li itemprop="itemListElement" itemscope
+      itemtype="https://schema.org/ListItem">
+    <a itemprop="item" href="">
+        <span itemprop="name">マイページ</span>
+    </a>
+    <meta itemprop="position" content="2" />
+  </li>
+  <li itemprop="itemListElement" itemscope
+      itemtype="https://schema.org/ListItem">
+    <a itemprop="item" href="#">
+        <span itemprop="name">アカウント情報編集</span>
+    </a>
+    <meta itemprop="position" content="3" />
+  </li>
 
+</ol>
+</div>
 
+<!--<h5 style="text-align:center">アカウント情報を編集する</h5>-->
+<br>
 <% if flash[:notice] %>
 	<%= flash[:notice] %>
 <% end %>
+<br>
+<div class="form", style="transform: translate(-50%, -75%)">
+    <h5 style="text-align:center">アカウント情報を編集する</h5><br>
 
 <%= form_for @user, url: {action: :update} do |t| %>
-
-    <%= t.text_field :name %><br>
-    <%= t.text_field :mail %><br><br>
-    <%= t.submit '決定'%>
+    <%= t.label :name,"ユーザー名" %>
+    <%= t.text_field :name %>
+    <%= t.label :mail,"メールアドレス" %>
+    <%= t.text_field :mail %>
+    <br><br>
+    <div class="input_wrap", style="text-align: center">
+    <%= t.submit '変更する' ,class: "button" %>
+    </div>
         
 <% end %>
+<br>
+<div class="input_wrap", style="text-align: center">
+    <%= link_to '退会する', user_path(@user.id), method: :delete, :data => {:confirm => '本当に退会しますか？'}  %>
+</div>
+</div>
 
-<%= link_to '退会する', user_path(@user.id), method: :delete, :data => {:confirm => '本当に退会しますか？'}  %><br>
-<%= link_to '戻る', user_path(@user.id) %><br>
+<!--<%= link_to '退会する', user_path(@user.id), method: :delete, :data => {:confirm => '本当に退会しますか？'}  %><br>-->
+<!--<%= link_to '戻る', user_path(@user.id) %><br>-->
 
 

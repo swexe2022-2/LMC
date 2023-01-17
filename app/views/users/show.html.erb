@@ -1,10 +1,29 @@
-<%= "#{@user.name}さんのマイページ" %><br>
+
+
+<ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope
+      itemtype="https://schema.org/ListItem">
+    <a itemprop="item" href="/">
+        <span itemprop="name">ホーム</span>
+    </a>
+    <meta itemprop="position" content="1" />
+  </li>
+
+  <li itemprop="itemListElement" itemscope
+      itemtype="https://schema.org/ListItem">
+    <a itemprop="item" href="#">
+        <span itemprop="name">マイページ</span>
+    </a>
+    <meta itemprop="position" content="2" />
+  </li>
+
+</ol>
+<!--<%= "#{@user.name}さんのマイページ" %><br>-->
+<br>
+
+
 <div class="row">
-  <% if @keyword != "" and @keyword != nil %>
-  <h5><%= @keyword %>のレシピ一覧</h5>
-  <% else %>
   <h6>投稿したレシピ</h6>
-  <% end %>
   
   <% @recipes.each do |recipe| %>
   
@@ -34,11 +53,13 @@
     </div>
   <% end %>
 </div>
-
+  
+<!--<%= link_to "アカウント情報の変更", edit_user_path(@user.id) %>-->
 
 <p><%= button_to edit_user_path(@user.id),:class => "waves-effect waves-light btn",:method => :get do  %>
-<i class="material-icons left">border_color</i>アカウント情報を編集する
+<i class="material-icons left">border_color</i>アカウント情報の変更
 <% end %></p>
-<%= button_to root_path,:class => "waves-effect waves-light btn",:method => :get do  %>
-<i class="material-icons left">directions_run</i>戻る 
-<% end %>
+<!--<p><%= link_to 'レシピを投稿する', '/recipes/new', class: "button" %></p>-->
+<!--<%= button_to root_path,:class => "waves-effect waves-light btn",:method => :get do  %>-->
+<!--<i class="material-icons left">directions_run</i>戻る -->
+<!--<% end %>-->
