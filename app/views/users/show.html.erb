@@ -22,6 +22,11 @@
 </div>
 <br>
 
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
+<br>
+
 <!--投稿したレシピ一覧-->
 <div class="row">
   <h5>投稿したレシピ</h5>
@@ -49,7 +54,7 @@
 </div>
   
 
-<p><%= button_to edit_user_path(@user.id),:class => "waves-effect waves-light btn",:method => :get do  %>
+<p><%= button_to edit_user_path("#{current_user.id}"),:class => "waves-effect waves-light btn",:method => :get do  %>
 <i class="material-icons left">border_color</i>アカウント情報の変更
 <% end %></p>
 

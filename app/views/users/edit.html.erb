@@ -39,9 +39,13 @@
 
 <%= form_for @user, url: {action: :update} do |t| %>
     <%= t.label :name,"ユーザー名" %>
-    <%= t.text_field :name %>
+    <%= t.text_field :name, required: true %>
     <%= t.label :mail,"メールアドレス" %>
-    <%= t.text_field :mail %>
+    <%= t.text_field :mail, required: true %>
+    <%= t.label :password,"新しいパスワード" %>
+    <%= t.password_field :password %>
+    <%= t.label :password_confirmation,"パスワードの確認" %>
+    <%= t.password_field :password_confirmation %>
     <br><br>
     <div class="input_wrap", style="text-align: center">
     <%= t.submit '変更する' ,class: "button" %>
