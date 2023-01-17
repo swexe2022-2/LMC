@@ -1,5 +1,4 @@
 
-
 <% if flash[:notice] %>
 	<%= flash[:notice] %>
 <% end %>
@@ -84,7 +83,7 @@
           <%= link_to "/recipes/#{recipe.id}" do %>
             <div class="overflow-wrap">
               <div class="break-word ">
-               <h5><%= recipe.fname %></h5>
+               <h6><%= recipe.fname %></h6>
               </div>
             </div>
           <% end %>

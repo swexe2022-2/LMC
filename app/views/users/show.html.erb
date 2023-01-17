@@ -1,12 +1,40 @@
 <%= "#{@user.name}さんのマイページ" %><br>
-<% @recipes.each do |recipe| %>
-    【料理名】
-    <p>　<%= recipe.fname %></p>
-    【材料】
-    <p>　<%= safe_join(recipe.ingredients.split("\n"),tag(:br)) %></p>
+<div class="row">
+  <% if @keyword != "" and @keyword != nil %>
+  <h5><%= @keyword %>のレシピ一覧</h5>
+  <% else %>
+  <h6>投稿したレシピ</h6>
+  <% end %>
+  
+  <% @recipes.each do |recipe| %>
+  
+    <div class="col s12 m4 l2">
+      <!--<div class="image-container">-->
 
-<%= link_to('詳細', "/recipes/#{recipe.id}",{class: "waves-effect waves-light btn"}) %>
-<% end %>
+      <div class="flex-item">
+        <div class="image-wrap">
+        <% if recipe.image != nil %>
+      　　<%= image_tag("/get_reciepe/#{recipe.id}") %>
+    　　<% else %>
+      　　<%= image_tag('no_image.jpg') %>
+    　　<% end %>
+    　　</div>
+  　　</div>
+        <!--<span class="card-title activator grey-text text-darken-4">-->
+          <%= link_to "/recipes/#{recipe.id}" do %>
+            <div class="overflow-wrap">
+              <div class="break-word ">
+               <h6><%= recipe.fname %></h6>
+              </div>
+            </div>
+          <% end %>
+        <!--</span>-->
+        <p><%= recipe.tag %></p><br>
+    <!--</div>-->
+    </div>
+  <% end %>
+</div>
+
 
 <p><%= button_to edit_user_path(@user.id),:class => "waves-effect waves-light btn",:method => :get do  %>
 <i class="material-icons left">border_color</i>アカウント情報を編集する
