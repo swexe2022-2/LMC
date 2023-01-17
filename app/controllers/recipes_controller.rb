@@ -46,9 +46,14 @@ class RecipesController < ApplicationController
     #user.recipe << recipe
 
     recipe.user = user
-    recipe.save
     
-    redirect_to '/'
+    if recipe.save
+      flash[:notice] = '投稿しました'
+      redirect_to '/'
+    else
+      flash[:notice] = '投稿に失敗しました'
+      redirect_to new_recipe_path(current_user.id)
+    end
   end
   
   def show
