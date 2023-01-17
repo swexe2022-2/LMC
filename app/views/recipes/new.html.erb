@@ -13,11 +13,11 @@
 
 
     <p><%= f.label :image, '画像' %></p>
-    <%= f.file_field :image %>
+    <%= f.file_field :image,class: "button"%>
     <p><%= f.label :movie, '動画' %></p>
-    <%= f.file_field :movie %>
+    <%= f.file_field :movie,class: "button" %>
     
-    <p><%= f.submit '投稿' %></p>
+    <p><%= f.submit '投稿',class: "button" %></p>
 <% end %><br>
 
 <%= button_to root_path,:class => "waves-effect waves-light btn",:method => :get do  %>
