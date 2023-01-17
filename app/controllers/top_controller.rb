@@ -20,7 +20,7 @@ class TopController < ApplicationController
         flash.now[:notice] = "ログインしました（#{session[:login_name]}）"
         redirect_to recipes_path
       elsif BCrypt::Password.new(user.pass) != pass
-        flash.now[:notice] = 'パスワードが間違っています'
+        flash.now[:notice] = 'ユーザー名かパスワードが間違っています'
         render "login.html.erb"
       else
         flash.now[:notice] = 'ログインに失敗しました'
