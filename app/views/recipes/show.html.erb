@@ -56,11 +56,11 @@
     <% if @recipe.user == current_user %>
         <div class="item-list">
             <div class="item">
-            <%= button_to "/recipes/#{@recipe.id}/edit", {class: "waves-effect waves-light btn" } do  %>
+            <%= button_to "/recipes/#{@recipe.id}/edit",:class => "waves-effect waves-light btn",:method => :get do  %>
             <i class="material-icons left">border_color</i>編集<% end %>
             </div>
             <div class="item">
-            <%= button_to recipe_path(@recipe.id), { data: {confirm: '本当に削除しますか？'}, class: "waves-effect waves-light btn red"},:method => :delete,:method => :get do  %>
+            <%= button_to recipe_path(@recipe.id), :data => {:confirm => '本当に削除しますか？'}, class: "waves-effect waves-light btn red",:method => :delete do  %>
             <i class="material-icons left">block</i>削除<% end %>
             </div>
         </div>
