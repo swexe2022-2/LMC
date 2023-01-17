@@ -1,31 +1,74 @@
-    【投稿者】
-    <p><%= @recipe.user.name %></p>
-    【料理名】
-    <p><%= @recipe.fname %></p>
-    【材料】
-    <p><%= safe_join(@recipe.ingredients.split("\n"),tag(:br)) %></p>
-    【手順】
-    <p><%= safe_join(@recipe.process.split("\n"),tag(:br)) %></p>
-    【タグ】
-    <p><%= @recipe.tag %></p>    
+<!--パンくずリスト-->
+<div class="container" >
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="/">
+            <span itemprop="name">ホーム</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
     
-    <% if @recipe.image != nil %>
-    <p><%= image_tag "/get_reciepe/#{@recipe.id}" %></p>
-    <% end %>
+      <li itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="#">
+            <span itemprop="name"><%= @recipe.fname %></span>
+        </a>
+        <meta itemprop="position" content="2" />
+      </li>
+    
+    </ol>
+</div>
+<br>
+<div class="container", style="max-width:600px">
+    <div class="h_container">
+        <h5 style="text-align:center"><%= @recipe.fname %></h5> 
+    </div>
+</div>
+<div class="container", style="max-width:600px">
+    <div class="flex-item">
+        <div class="image-wrap">
+            <% if @recipe.image != nil %>
+                <p><%= image_tag "/get_reciepe/#{@recipe.id}" %></p>
+            <% end %>
+        </div>
+    </div>
+</div>
+<div class="container", style="max-width:600px">
+    <p style="text-align:right">投稿者 : <%= @recipe.user.name %></p>
+    <p style="text-align:right">タグ : <%= @recipe.tag %></p>
+</div>     
+<div class="container", style="max-width:500px">
+
+    <h5 style="text-align:left">材料</h5>
+    <div class="second_container">
+        <p><%= safe_join(@recipe.ingredients.split("\n"),tag(:br)) %></p>
+    </div>
+    <h5 style="text-align:left">作り方</h5>
+    <div class="second_container">
+        <p><%= safe_join(@recipe.process.split("\n"),tag(:br)) %></p>
+    </div>  
+    
     <% if @recipe.movie != nil %>
-    <p><%= video_tag("/get_reciepe2/#{@recipe.id}", size: "500x300", autoplay: true, muted: true,controls: true)  %></p>
+        <p><%= video_tag("/get_reciepe2/#{@recipe.id}", size: "500x300", autoplay: true, muted: true,controls: true)  %></p>
     <% end %>
     
     <% if @recipe.user == current_user %>
-    <%= button_to recipe_path(@recipe.id), :data => {:confirm => '本当に削除しますか？'},:class => "waves-effect waves-light btn",:method => :delete do  %>
-    <i class="material-icons left">block</i>削除
+        <div class="item-list">
+            <div class="item">
+            <%= button_to "/recipes/#{@recipe.id}/edit", {class: "waves-effect waves-light btn" } do  %>
+            <i class="material-icons left">border_color</i>編集<% end %>
+            </div>
+            <div class="item">
+            <%= button_to recipe_path(@recipe.id), { data: {confirm: '本当に削除しますか？'}, class: "waves-effect waves-light btn red"},:method => :delete,:method => :get do  %>
+            <i class="material-icons left">block</i>削除<% end %>
+            </div>
+        </div>
     <% end %>
-    <p><%= button_to "/recipes/#{@recipe.id}/edit",:class => "waves-effect waves-light btn",:method => :get do  %>
-    <i class="material-icons left">border_color</i>編集
-    <% end %></p>
-    <% end %>
-    <%= button_to '/',:class => "waves-effect waves-light btn",:method => :get do  %>
-    <i class="material-icons left">directions_run</i>戻る 
-    <% end %>
+</div>
+    
+    <!--<%= button_to '/',:class => "waves-effect waves-light btn",:method => :get do %>-->
+    <!--    <i class="material-icons left">directions_run</i>戻る -->
+    <!--<% end %>-->
     
 

@@ -7,14 +7,6 @@ html{
   max-width: 500px;
 }
 
-.image-container {
-
-  border: solid 2px black;
-  width: 100%;
-  height: 100%;
-  
-}
-
 .container {
   margin: 25px;
   // outline: dashed 1px black;
@@ -24,8 +16,23 @@ html{
   align-items: center;
 }
 
+.second_container {
+  margin: 25px;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.h_container {
+  padding: 3px;
+  justify-content: center;
+  align-items: center;
+  background: #ff8a80;
+  color: white;
+}
+
 .image-wrap{
-  outline: solid 2px #ffffff;
+  outline: solid 2px #ff9e80;
   position: relative;
   overflow: hidden;
   padding-top: 60%;
@@ -46,26 +53,7 @@ html{
   flex-basis: 100%;
 }
 
-.button {
-  display       : inline-block;
-  border-radius : 5%;          /* 角丸       */
-  font-size     : 12pt;        /* 文字サイズ */
-  text-align    : center;      /* 文字位置   */
-  cursor        : pointer;     /* カーソル   */
-  padding       : 12px 12px;   /* 余白       */
-  background    : #00bfa5;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
-  line-height   : 1em;         /* 1行の高さ  */
-  transition    : .3s;         /* なめらか変化 */
-  box-shadow    : 2px 2px 1px #666666;  /* 影の設定 */
-  border        : 2px solid #00bfa5;    /* 枠の指定 */
-}
 
-.button:hover {
-  background: #ffccbc;
-  color: rgb(255, 255, 255);
-  border        : 2px solid #ffccbc;    /* 枠の指定 */
-}
 
 /* タグ検索ボタン */
 .tag_button {
