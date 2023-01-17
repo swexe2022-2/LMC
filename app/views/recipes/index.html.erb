@@ -60,7 +60,7 @@
 <!--料理一覧-->
   
 <div class="row">
-  <% if @keyword != "" %>
+  <% if @keyword != "" and @keyword != nil %>
   <h5><%= @keyword %>のレシピ一覧</h5>
   <% else %>
   <h5>レシピ一覧</h5>
