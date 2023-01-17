@@ -10,7 +10,7 @@
 
   <li itemprop="itemListElement" itemscope
       itemtype="https://schema.org/ListItem">
-    <a itemprop="item" href="">
+    <a itemprop="item" href=<%= user_path(current_user.id) %>>
         <span itemprop="name">マイページ</span>
     </a>
     <meta itemprop="position" content="2" />
@@ -18,7 +18,7 @@
   <li itemprop="itemListElement" itemscope
       itemtype="https://schema.org/ListItem">
     <a itemprop="item" href="#">
-        <span itemprop="name">アカウント情報編集</span>
+        <span itemprop="name">アカウント情報変更</span>
     </a>
     <meta itemprop="position" content="3" />
   </li>
@@ -33,7 +33,7 @@
 <% end %>
 <br>
 <div class="form", style="transform: translate(-50%, -75%)">
-    <h5 style="text-align:center">アカウント情報を編集する</h5><br>
+    <h5 style="text-align:center">アカウント情報を変更する</h5><br>
 
 <%= form_for @user, url: {action: :update} do |t| %>
     <%= t.label :name,"ユーザー名" %>
