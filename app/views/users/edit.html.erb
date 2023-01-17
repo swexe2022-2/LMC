@@ -32,7 +32,9 @@
 	<%= flash[:notice] %>
 <% end %>
 <br>
-<div class="form", style="transform: translate(-50%, -75%)">
+
+<div class="container", style="max-width:600px">
+<div class="form", style="transform: translate(-50%, -0%)">
     <h5 style="text-align:center">アカウント情報を変更する</h5><br>
 
 <%= form_for @user, url: {action: :update} do |t| %>
@@ -49,6 +51,7 @@
 <br>
 <div class="input_wrap", style="text-align: center">
     <%= link_to '退会する', user_path(@user.id), method: :delete, :data => {:confirm => '本当に退会しますか？'}  %>
+</div>
 </div>
 </div>
 
