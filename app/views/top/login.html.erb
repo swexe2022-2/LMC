@@ -2,8 +2,8 @@
 <% if flash[:notice] %>
 	<p style="text-align: center"><%= flash[:notice] %></p>
 <% end %><br>
-
-<div class="form", style="transform: translate(-50%, -75%)">
+<div class="container", style="max-width:600px">
+<div class="form", style="transform: translate(-50%, -0%)">
     <%= form_tag '/top/login', method: :post do %>
         <h5 style="text-align: left">ログイン</h5><br>
         <%= label_tag :name, 'ユーザー名' %>
@@ -17,6 +17,7 @@
     <%end%>
     <br><p style="text-align: center">まだアカウントをお持ちでないですか？<%= link_to '新規登録', new_user_path %></p>
 
+</div>
 </div>
 
 <br>

@@ -2,8 +2,8 @@
 <% if flash[:notice] %>
 	<p style="text-align: center"><%= flash[:notice] %></p>
 <% end %><br>
-
-<div class="form", style="transform: translate(-50%, -50%)">
+<div class="container", style="max-width:600px">
+<div class="form", style="transform: translate(-50%, -0%)">
     <%= form_for @user, url: {action: :create} do |f| %>
         <h5 style="text-align: left">アカウントを作成</h5><br>
         <%= f.label :name, 'ユーザー名' %><br>
@@ -20,4 +20,5 @@
     <%end%>
     <br><p style="text-align: center">すでにアカウントをお持ちですか？<%= link_to 'ログイン', top_main_path %></p>
 
+</div>
 </div>

@@ -1,16 +1,53 @@
-<%= "#{@user.name}さんのマイページ" %><br>
-<% @recipes.each do |recipe| %>
-    【料理名】
-    <p>　<%= recipe.fname %></p>
-    【材料】
-    <p>　<%= safe_join(recipe.ingredients.split("\n"),tag(:br)) %></p>
 
-<%= link_to('詳細', "/recipes/#{recipe.id}",{class: "waves-effect waves-light btn"}) %>
-<% end %>
+
+<ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope
+      itemtype="https://schema.org/ListItem">
+    <a itemprop="item" href="/">
+        <span itemprop="name">ホーム</span>
+    </a>
+    <meta itemprop="position" content="1" />
+  </li>
+
+  <li itemprop="itemListElement" itemscope
+      itemtype="https://schema.org/ListItem">
+    <a itemprop="item" href="#">
+        <span itemprop="name">マイページ</span>
+    </a>
+    <meta itemprop="position" content="2" />
+  </li>
+
+</ol>
+<br>
+
+
+<div class="row">
+  <h5>投稿したレシピ</h5>
+  <% @recipes.each do |recipe| %>
+    <div class="col s12 m4 l2">
+      <div class="flex-item">
+        <div class="image-wrap">
+        <% if recipe.image != nil %>
+      　　<%= image_tag("/get_reciepe/#{recipe.id}") %>
+    　　<% else %>
+      　　<%= image_tag('no_image.jpg') %>
+    　　<% end %>
+    　　</div>
+  　　</div>
+          <%= link_to "/recipes/#{recipe.id}" do %>
+            <div class="overflow-wrap">
+              <div class="break-word ">
+               <h6><%= recipe.fname %></h6>
+              </div>
+            </div>
+          <% end %>
+        <p><%= recipe.tag %></p><br>
+    </div>
+  <% end %>
+</div>
+  
 
 <p><%= button_to edit_user_path(@user.id),:class => "waves-effect waves-light btn",:method => :get do  %>
-<i class="material-icons left">border_color</i>アカウント情報を編集する
+<i class="material-icons left">border_color</i>アカウント情報の変更
 <% end %></p>
-<%= button_to root_path,:class => "waves-effect waves-light btn",:method => :get do  %>
-<i class="material-icons left">directions_run</i>戻る 
-<% end %>
+
