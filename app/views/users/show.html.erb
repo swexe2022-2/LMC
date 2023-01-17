@@ -18,7 +18,6 @@
   </li>
 
 </ol>
-<!--<%= "#{@user.name}さんのマイページ" %><br>-->
 <br>
 
 
@@ -26,10 +25,7 @@
   <h6>投稿したレシピ</h6>
   
   <% @recipes.each do |recipe| %>
-  
     <div class="col s12 m4 l2">
-      <!--<div class="image-container">-->
-
       <div class="flex-item">
         <div class="image-wrap">
         <% if recipe.image != nil %>
@@ -39,7 +35,6 @@
     　　<% end %>
     　　</div>
   　　</div>
-        <!--<span class="card-title activator grey-text text-darken-4">-->
           <%= link_to "/recipes/#{recipe.id}" do %>
             <div class="overflow-wrap">
               <div class="break-word ">
@@ -47,19 +42,13 @@
               </div>
             </div>
           <% end %>
-        <!--</span>-->
         <p><%= recipe.tag %></p><br>
-    <!--</div>-->
     </div>
   <% end %>
 </div>
   
-<!--<%= link_to "アカウント情報の変更", edit_user_path(@user.id) %>-->
 
 <p><%= button_to edit_user_path(@user.id),:class => "waves-effect waves-light btn",:method => :get do  %>
 <i class="material-icons left">border_color</i>アカウント情報の変更
 <% end %></p>
-<!--<p><%= link_to 'レシピを投稿する', '/recipes/new', class: "button" %></p>-->
-<!--<%= button_to root_path,:class => "waves-effect waves-light btn",:method => :get do  %>-->
-<!--<i class="material-icons left">directions_run</i>戻る -->
-<!--<% end %>-->
+

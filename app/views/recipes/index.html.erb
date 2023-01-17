@@ -68,8 +68,6 @@
   <% @recipes.each do |recipe| %>
   
     <div class="col s12 m4 l2">
-      <!--<div class="image-container">-->
-
       <div class="flex-item">
         <div class="image-wrap">
         <% if recipe.image != nil %>
@@ -79,17 +77,14 @@
     　　<% end %>
     　　</div>
   　　</div>
-        <!--<span class="card-title activator grey-text text-darken-4">-->
-          <%= link_to "/recipes/#{recipe.id}" do %>
-            <div class="overflow-wrap">
-              <div class="break-word ">
-               <h6><%= recipe.fname %></h6>
-              </div>
+        <%= link_to "/recipes/#{recipe.id}" do %>
+          <div class="overflow-wrap">
+            <div class="break-word ">
+             <h6><%= recipe.fname %></h6>
             </div>
-          <% end %>
-        <!--</span>-->
+          </div>
+        <% end %>
         <p><%= recipe.tag %></p><br>
-    <!--</div>-->
     </div>
   <% end %>
 </div>
