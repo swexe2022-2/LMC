@@ -28,10 +28,16 @@
 
 <!--<h5 style="text-align:center">アカウント情報を編集する</h5>-->
 <br>
+
 <% if flash[:notice] %>
-	<%= flash[:notice] %>
+    <div class="container", style="max-width:400px">
+        <div class="flash">
+    	<%= flash[:notice] %>
+    	</div>
+    </div>
 <% end %>
 <br>
+
 
 <div class="container", style="max-width:600px">
 <div class="form", style="transform: translate(-50%, -0%)">

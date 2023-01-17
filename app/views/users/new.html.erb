@@ -1,7 +1,12 @@
-
 <% if flash[:notice] %>
-	<p style="text-align: center"><%= flash[:notice] %></p>
-<% end %><br>
+    <div class="container", style="max-width:400px">
+        <div class="flash">
+    	<%= flash[:notice] %>
+    	</div>
+    </div>
+<% end %>
+<br>
+
 <div class="container", style="max-width:600px">
 <div class="form", style="transform: translate(-50%, -0%)">
     <%= form_for @user, url: {action: :create} do |f| %>

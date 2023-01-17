@@ -1,6 +1,11 @@
 <% if flash[:notice] %>
-	<%= flash[:notice] %>
-<% end %><br>
+    <div class="container", style="max-width:400px">
+        <div class="flash">
+    	<%= flash[:notice] %>
+    	</div>
+    </div>
+<% end %>
+<br>
 
 <%= form_for @recipe ,url: {action: :create} do |f| %>
     <p><%= f.label :fname, '料理名' %>
