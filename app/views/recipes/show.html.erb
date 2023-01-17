@@ -29,7 +29,9 @@
     <div class="flex-item">
         <div class="image-wrap">
             <% if @recipe.image != nil %>
-                <p><%= image_tag "/get_reciepe/#{@recipe.id}" %></p>
+                <%= image_tag "/get_reciepe/#{@recipe.id}" %>
+            <% else %>
+                <%= image_tag "no_image.jpg" %>
             <% end %>
         </div>
     </div>
@@ -60,7 +62,7 @@
             <i class="material-icons left">border_color</i>編集<% end %>
             </div>
             <div class="item">
-            <%= button_to recipe_path(@recipe.id), :data => {:confirm => '本当に削除しますか？'}, class: "waves-effect waves-light btn red",:method => :delete do  %>
+            <%= button_to recipe_path(@recipe.id), :data => {:confirm =>'本当に削除しますか？'}, class: "waves-effect waves-light btn red",:method => :delete do  %>
             <i class="material-icons left">block</i>削除<% end %>
             </div>
         </div>
