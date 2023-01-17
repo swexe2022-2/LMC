@@ -17,7 +17,7 @@
     <p><%= f.label :movie, '動画' %></p>
     <%= f.file_field :movie %>
     
-    <p><%= f.submit '投稿' %></p>
+    <p><%= f.submit '投稿',class: "waves-effect waves-light btn" %></p>
 <% end %><br>
 
 <%= button_to root_path,:class => "waves-effect waves-light btn",:method => :get do  %>
